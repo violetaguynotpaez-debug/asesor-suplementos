@@ -1,0 +1,653 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Asesor de Suplementos Uruguay</title>
+<meta name="description" content="Compará suplementos deportivos en tiendas uruguayas: evidencia, precio por dosis y ofertas reales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: un "pastillero" pastel. Buscador en forma de cápsula arriba, y el resultado
+   en compartimentos de colores: veredicto, recomendación, ganadores, productos, dosis y alertas. */
+:root {
+  --fondo: #F4F1FB;
+  --papel: #FFFFFF;
+  --tinta: #2E2A56;
+  --tinta-suave: #5E5A84;
+  --linea: #E2DCF2;
+  --rosa: #FFC9DE;
+  --menta: #BFEFD9;
+  --celeste: #C3E2FB;
+  --manteca: #FFF0B3;
+  --lavanda: #D9C8F7;
+  --durazno: #FFD6BF;
+  --suave: #F1EEF8;
+  --ok: #DDF6EA;
+  --mal: #FFE3EA;
+  --borde-mal: #E0607E;
+  --foco: #8B6FE0;
+  --oscuro-bloque: #2E2A56;
+  --sobre-oscuro: #FFFFFF;
+  --halo-1: #FFE3EE;
+  --halo-2: #E2F7EE;
+  --titulos: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --texto: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sombra: 0 2px 0 rgba(46,42,86,.08), 0 14px 30px -20px rgba(46,42,86,.4);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #1D1A33; --papel: #28243F; --tinta: #F2EEFF; --tinta-suave: #B9B3D9; --linea: #3D3860;
+    --rosa: #6E3A57; --menta: #2F5E4D; --celeste: #2F4D6A; --manteca: #6A5C2A; --lavanda: #4C3F78; --durazno: #6E4A36;
+    --suave: #322D4F; --ok: #24493B; --mal: #5A2638; --borde-mal: #F08AA3; --foco: #B9A4FF;
+    --oscuro-bloque: #F2EEFF; --sobre-oscuro: #1D1A33; --halo-1: #2E2140; --halo-2: #1F3330;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #1D1A33; --papel: #28243F; --tinta: #F2EEFF; --tinta-suave: #B9B3D9; --linea: #3D3860;
+  --rosa: #6E3A57; --menta: #2F5E4D; --celeste: #2F4D6A; --manteca: #6A5C2A; --lavanda: #4C3F78; --durazno: #6E4A36;
+  --suave: #322D4F; --ok: #24493B; --mal: #5A2638; --borde-mal: #F08AA3; --foco: #B9A4FF;
+  --oscuro-bloque: #F2EEFF; --sobre-oscuro: #1D1A33; --halo-1: #2E2140; --halo-2: #1F3330;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(900px 500px at 100% -10%, var(--halo-1), transparent 60%),
+              radial-gradient(800px 500px at -10% 10%, var(--halo-2), transparent 55%), var(--fondo);
+  color: var(--tinta); font-family: var(--texto); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 32px;
+}
+.envoltura { max-width: 1100px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--titulos); line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; border-radius: 8px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+a { color: inherit; }
+
+/* Encabezado */
+.encabezado { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; flex-wrap: wrap; }
+.marca { display: flex; align-items: center; gap: 12px; font-family: var(--titulos); font-weight: 600; font-size: 1.05rem; }
+.marca b { font-weight: 800; background: var(--manteca); padding: 0 6px; border-radius: 6px; }
+.capsula-logo { display: inline-flex; width: 46px; height: 22px; border-radius: 99px; overflow: hidden; transform: rotate(-24deg); box-shadow: inset 0 0 0 2px var(--tinta); }
+.capsula-logo span { flex: 1; }
+.capsula-logo span:first-child { background: var(--rosa); border-right: 2px solid var(--tinta); }
+.capsula-logo span:last-child { background: var(--menta); }
+.relevado { font-size: .85rem; color: var(--tinta-suave); background: var(--papel); padding: 6px 12px; border-radius: 99px; box-shadow: var(--sombra); }
+
+/* Portada */
+.portada { text-align: center; padding-block: 28px 10px; max-width: 760px; margin: 0 auto; }
+.portada h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); font-weight: 800; }
+.bajada { color: var(--tinta-suave); font-size: 1.08rem; max-width: 58ch; margin: 14px auto 0; }
+.capsula-buscador { display: flex; margin: 28px auto 0; max-width: 640px; border-radius: 99px; background: var(--papel);
+  box-shadow: 0 0 0 3px var(--tinta), 0 18px 40px -22px rgba(46,42,86,.6); overflow: hidden; }
+.capsula-buscador:focus-within { box-shadow: 0 0 0 3px var(--tinta), 0 0 0 8px var(--lavanda); }
+.capsula-buscador input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 18px 24px; font-size: 1.1rem; outline: none; }
+.capsula-buscador button { border: 0; border-left: 3px solid var(--tinta); background: var(--rosa); padding: 0 28px;
+  font-family: var(--titulos); font-weight: 800; font-size: 1.05rem; cursor: pointer; }
+.capsula-buscador button:disabled { opacity: .6; cursor: wait; }
+.sugerencias { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+.chip { border: 2px solid var(--tinta); background: var(--c); border-radius: 99px; padding: 5px 14px; font-weight: 600; cursor: pointer; font-size: .95rem; transition: transform .12s; }
+.chip:hover { transform: translateY(-2px) rotate(-1.5deg); }
+label { display: flex; flex-direction: column; gap: 4px; font-size: .88rem; font-weight: 600; color: var(--tinta-suave); }
+input, select { border: 1.5px solid var(--linea); border-radius: 12px; padding: 10px 12px; background: var(--papel); font-weight: 500; color: var(--tinta); }
+
+/* Carga */
+.cargando { text-align: center; padding-block: 44px 24px; }
+.pastilla { display: inline-flex; width: 90px; height: 40px; border-radius: 99px; overflow: hidden; box-shadow: inset 0 0 0 3px var(--tinta); animation: girar 1.6s ease-in-out infinite; }
+.pastilla span { flex: 1; }
+.pastilla span:first-child { background: var(--rosa); border-right: 3px solid var(--tinta); }
+.pastilla span:last-child { background: var(--menta); }
+@keyframes girar { 0% { transform: rotate(-20deg); } 50% { transform: rotate(200deg); } 100% { transform: rotate(340deg); } }
+#cargando-texto { font-family: var(--titulos); font-weight: 800; font-size: 1.25rem; margin: 22px 0 4px; }
+.nota { color: var(--tinta-suave); font-size: .88rem; margin: 0; }
+.boton-texto { margin-top: 12px; border: 0; background: none; text-decoration: underline; cursor: pointer; color: var(--tinta-suave); }
+
+/* Resultado */
+#resultado { margin-top: 28px; display: grid; gap: 20px; }
+.bloque { background: var(--papel); border-radius: 26px; padding: 26px; box-shadow: var(--sombra); min-width: 0; }
+.bloque > h2 { font-size: 1.4rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.veredicto { border: 3px solid var(--tinta); }
+.veredicto-cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.veredicto h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-weight: 800; text-transform: capitalize; }
+.meta { color: var(--tinta-suave); font-size: .9rem; margin-top: 6px; }
+.conclusion { font-size: 1.12rem; margin: 16px 0 0; max-width: 68ch; }
+.sello { flex-shrink: 0; border-radius: 22px; padding: 12px 18px; text-align: center; border: 2.5px solid var(--tinta); background: var(--ev, var(--lavanda)); transform: rotate(2deg); }
+.sello small { display: block; font-size: .78rem; font-weight: 600; color: var(--tinta-suave); }
+.sello strong { font-family: var(--titulos); font-size: 1.35rem; font-weight: 800; }
+.ev-solida { --ev: var(--menta); } .ev-limitada { --ev: var(--manteca); } .ev-insuficiente { --ev: var(--suave); } .ev-riesgo_elevado { --ev: var(--rosa); }
+.detalle { margin-top: 14px; padding: 14px 16px; background: var(--suave); border-radius: 16px; }
+.detalle summary { cursor: pointer; font-weight: 700; }
+.detalle p { margin: 8px 0 0; }
+.preguntas { background: var(--manteca); border-radius: 16px; padding: 14px 18px; margin-top: 16px; }
+.preguntas ul { margin: 4px 0 0; padding-left: 20px; }
+.recomendacion { background: var(--oscuro-bloque); color: var(--sobre-oscuro); }
+.recomendacion p { font-size: 1.12rem; margin: 0; max-width: 68ch; }
+.ganadores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ganador { border-radius: 18px; padding: 16px; border: 2px solid var(--tinta); background: var(--g); }
+.ganador small { display: block; font-weight: 700; margin-bottom: 4px; color: var(--tinta-suave); }
+.ganador p { margin: 0; font-weight: 600; }
+.vistas { display: inline-flex; background: var(--suave); padding: 4px; border-radius: 99px; margin-left: auto; }
+.vistas button { border: 0; background: none; padding: 5px 14px; border-radius: 99px; cursor: pointer; font-weight: 600; font-size: .9rem; }
+.vistas button.activa { background: var(--papel); box-shadow: var(--sombra); }
+.orden { font-size: .9rem; color: var(--tinta-suave); margin: -4px 0 14px; }
+.productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.producto { border: 1.5px solid var(--linea); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; background: var(--papel); }
+.producto.agotado { opacity: .62; }
+.foto { position: relative; aspect-ratio: 16 / 10; max-width: 100%; background: var(--fp); display: grid; place-items: center; }
+.foto svg { width: 34%; height: auto; }
+.pin { position: absolute; top: 10px; left: 10px; background: var(--tinta); color: var(--papel); font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; }
+.pin.desc { left: auto; right: 10px; background: var(--rosa); color: var(--tinta); border: 2px solid var(--tinta); }
+.pin.top { background: var(--manteca); color: var(--tinta); border: 2px solid var(--tinta); }
+.cuerpo { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.cuerpo h3 { font-size: 1.02rem; font-weight: 700; }
+.tienda { color: var(--tinta-suave); font-size: .9rem; }
+.precio { font-family: var(--titulos); font-weight: 800; font-size: 1.7rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.precio s { font-size: .95rem; font-weight: 500; color: var(--tinta-suave); margin-left: 6px; }
+.datos { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: .86rem; }
+.datos div { background: var(--suave); border-radius: 10px; padding: 6px 9px; min-width: 0; }
+.datos small { display: block; color: var(--tinta-suave); font-size: .74rem; }
+.calidad { font-size: .88rem; color: var(--tinta-suave); margin: 0; }
+.ir { margin-top: auto; text-align: center; text-decoration: none; font-weight: 700; border: 2px solid var(--tinta); border-radius: 99px; padding: 8px; background: var(--menta); }
+.hist { display: flex; align-items: center; gap: 8px; font-size: .82rem; background: var(--suave); border-radius: 10px; padding: 6px 9px; color: var(--tinta-suave); }
+.hist .mini { width: 70px; height: 20px; flex-shrink: 0; color: var(--tinta); }
+.hist-minimo { background: var(--ok); color: var(--tinta); }
+.hist-sube { background: var(--mal); color: var(--tinta); }
+.nv { color: var(--tinta-suave); font-style: italic; font-weight: 500; }
+.tabla { overflow-x: auto; border-radius: 16px; border: 1.5px solid var(--linea); }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 820px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th { background: var(--lavanda); font-family: var(--titulos); font-weight: 600; }
+td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ofertas { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.oferta { background: var(--durazno); border: 2px dashed var(--tinta); border-radius: 18px; padding: 16px; }
+.oferta:nth-child(2n) { background: var(--celeste); }
+.oferta h3 { font-size: 1.02rem; }
+.oferta .monto { font-family: var(--titulos); font-weight: 800; font-size: 1.4rem; margin: 6px 0; }
+.oferta p { margin: 4px 0; font-size: .9rem; }
+.vacio { color: var(--tinta-suave); background: var(--suave); padding: 14px 18px; border-radius: 16px; margin: 0; }
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.dosis { background: var(--menta); }
+.antes { background: var(--papel); border: 2.5px dashed var(--tinta); }
+.antes-intro { margin: -6px 0 12px; color: var(--tinta-suave); }
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; background: var(--suave); border-radius: 12px; padding: 10px 12px; }
+.checklist input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--foco); flex-shrink: 0; }
+.checklist label { color: var(--tinta); font-size: .98rem; font-weight: 500; cursor: pointer; }
+.checklist li:has(input:checked) { background: var(--ok); }
+.antes-resumen { margin: 12px 0 0; font-weight: 700; }
+.alertas { background: var(--mal); }
+.dosis p { margin: 0; white-space: pre-line; }
+.alertas ul, .fuentes ul { margin: 0; padding-left: 20px; }
+.fuentes li { word-break: break-all; font-size: .9rem; margin-bottom: 4px; }
+.aviso { background: var(--manteca); border-radius: 16px; padding: 12px 16px; font-size: .92rem; }
+.error { max-width: 640px; margin: 24px auto; padding: 18px 22px; border-radius: 18px; background: var(--mal); border: 2px solid var(--borde-mal); }
+.error p { margin: 6px 0 0; }
+.boton { border: 2px solid var(--tinta); border-radius: 99px; padding: 9px 18px; font-weight: 700; cursor: pointer; background: var(--papel); }
+.fila { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.pie { text-align: center; color: var(--tinta-suave); font-size: .84rem; padding-top: 28px; max-width: 70ch; margin: 0 auto; }
+.aparecer { animation: aparecer .5s ease-out both; }
+@keyframes aparecer { from { opacity: .2; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 820px) { .dos { grid-template-columns: 1fr; } .ganadores { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .capsula-buscador input { padding: 15px 16px; font-size: 1rem; }
+  .capsula-buscador button { padding: 0 16px; }
+    .bloque { padding: 20px 16px; border-radius: 22px; }
+  .sello { transform: none; }
+  .relevado { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="envoltura">
+  <header class="encabezado">
+    <div class="marca"><span class="capsula-logo" aria-hidden="true"><span></span><span></span></span><span>Asesor de Suplementos <b>Uruguay</b></span></div>
+    <span class="relevado" id="relevado"></span>
+  </header>
+
+  <main>
+    <section class="portada">
+      <h1>¿Qué suplemento estás pensando comprar?</h1>
+      <p class="bajada">Te digo si vale la pena, qué dice la evidencia, dónde está más barato en Uruguay y cuánto te sale cada dosis.</p>
+      <form id="form" class="capsula-buscador" autocomplete="off">
+        <label for="consulta" class="sr">Suplemento a buscar</label>
+        <input id="consulta" type="text" minlength="2" maxlength="80" required placeholder="Escribí un suplemento, por ejemplo creatina">
+        <button type="submit" id="buscar">Comparar</button>
+      </form>
+      <div class="sugerencias" id="sugerencias"></div>
+    </section>
+
+    <div id="error" class="error" hidden role="alert"></div>
+    <div id="resultado" hidden></div>
+  </main>
+
+  <p class="pie">Proyecto académico · Licenciatura en Negocios Digitales, Universidad ORT Uruguay. Precios relevados en las webs de cada tienda; pueden cambiar, confirmá antes de comprar. No reemplaza a un médico ni a un nutricionista.</p>
+</div>
+
+<script>
+/* =====================================================================
+   1) CATÁLOGO: precios REALES relevados en las webs de cada tienda.
+   k = mismo producto en distintas tiendas (para comparar descuentos)
+   g = gramos o unidades del envase · u = unidad · pura = monohidrato puro
+   st = disponible | agotado | sin dato (la tienda no lo mostraba)
+   ===================================================================== */
+const RELEVADO = "22/10/2026";
+const TIENDAS = {
+  F: { n: "Farmashop", web: "tienda.farmashop.com.uy" },
+  D: { n: "Decathlon Uruguay", web: "decathlon.com.uy" },
+  T: { n: "Tu Producto", web: "tuproducto.com.uy" },
+  M: { n: "Mighty Suplementos", web: "mightysuplementos.uy" },
+  S: { n: "SDA Power", web: "sdapower.com" },
+};
+const P = (t, k, n, m, s, p, a, g, u, st, url, extra = {}) => ({ t, k, n, m, s, p, a, g, u, st, url, ...extra });
+const CATALOGO = [
+  // --- Creatina ---
+  P("creatina", "celsius-120", "Creatina Celsius sin Sabor 120 g", "Celsius", "F", 717, null, 120, "g", "disponible", "https://tienda.farmashop.com.uy/creatina-120-g.html", { pura: true, nota: "Ficha: 5 g de monohidrato por porción; único ingrediente." }),
+  P("creatina", "celsius-120", "Creatina Celsius 120 g Monohidrato", "Celsius", "T", 399, 579, 120, "g", "agotado", "https://www.tuproducto.com.uy/catalogo/suplementos/creatina/creatina-celsius-120-g-monohidrato-pura-para-fuerza-rendimiento-y-recuperacion-muscular-7730607004134/", { pura: true }),
+  P("creatina", "celsius-400", "Creatina Celsius sin Sabor 400 g", "Celsius", "F", 1998, null, 400, "g", "sin dato", "https://tienda.farmashop.com.uy/creatina-400-g.html", { pura: true }),
+  P("creatina", "celsius-400", "Creatina Monohidrato Celsius 400 g + muestra de whey", "Celsius", "T", 1390, null, 400, "g", "disponible", "https://www.tuproducto.com.uy/catalogo/suplementos/creatina/creatina-monohidrato-celsius-400g-muestra-whey-supreme-elite-20g-93468336670751/", { pura: true }),
+  P("creatina", "sylab-500", "Creatina Monohidrato Sylab Edatir 500 g", "Sylab", "F", 2496, null, 500, "g", "disponible", "https://tienda.farmashop.com.uy/creatina-monohidrato-500grs-edatir.html", { pura: true, nota: "La ficha no declara porción ni certificaciones." }),
+  P("creatina", "sylab-300", "Creatina Monohidrato Sylab Edatir 300 g", "Sylab", "F", 1520, null, 300, "g", "agotado", "https://tienda.farmashop.com.uy/creatina-monohidrato-300grs-edatir.html", { pura: true }),
+  P("creatina", "cibeles-150", "Creatina Cibeles 150 g sin Sabor", "Cibeles", "T", 1100, null, 150, "g", "disponible", "https://www.tuproducto.com.uy/catalogo/suplementos/creatina/creatina-cibeles-150g-sin-sabor-7730986381130/", { pura: true }),
+  P("creatina", "cibeles-350", "Creatina Cibeles 350 g sin Sabor", "Cibeles", "T", 1890, 2490, 350, "g", "disponible", "https://www.tuproducto.com.uy/catalogo/suplementos/creatina/creatina-cibeles-350g-sin-sabor-7730986381147/", { pura: true }),
+  P("creatina", "cibeles-350", "Creatina Cibeles 350 g", "Cibeles", "F", 2112, null, 350, "g", "agotado", "https://tienda.farmashop.com.uy/creatina-350g.html", { pura: true }),
+  P("creatina", "cibeles-creapure-500", "Creatina Creapure 500 g Cibeles", "Cibeles", "T", 3400, null, 500, "g", "sin dato", "https://www.tuproducto.com.uy/catalogo/suplementos/creatina/creatina-creapure-500-g-cibeles-nutrition-suplemento-deportivo-7730986380980/", { pura: true, nota: "Creapure (materia prima alemana con trazabilidad)." }),
+  P("creatina", "profit-300", "Creatina Monohidratada Power Profit 300 g", "Profit Labs", "M", 550, 850, 300, "g", "agotado", "https://www.mightysuplementos.uy/products/creatina-monohidratada-power-profit-300g", { pura: true }),
+  P("creatina", "on-micronizada", "Creatina Micronizada Optimum Nutrition", "Optimum Nutrition", "M", 1490, 1890, null, "g", "agotado", "https://www.mightysuplementos.uy/products/creatina-optimum-nutrition-micronizada", { pura: true, nota: "La tienda no aclara a qué tamaño (300 o 600 g) corresponde el precio." }),
+  // --- Proteína ---
+  P("proteina", "profit-isolate-900", "Isolate Protein Mix 900 g", "Profit Labs", "M", 950, 1000, 900, "g", "sin dato", "https://www.mightysuplementos.uy/products/isolate-protein-mix-900g", { nota: "Es una mezcla: la tienda no muestra cuánta proteína real tiene por porción." }),
+  P("proteina", "sylab-whey-400", "Whey Protein Sylab Frutilla 400 g", "Sylab", "F", 1018, null, 400, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-frutilla-400-g-sylab.html"),
+  P("proteina", "sylab-whey-800", "Whey Protein Sylab Frutilla 800 g", "Sylab", "F", 1694, null, 800, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-frutilla-800-g-sylab.html"),
+  P("proteina", "servimedic-400", "Whey Protein Servimedic Vainilla 400 g", "Servimedic", "F", 1736, null, 400, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-vainilla-400-g-servimedic.html"),
+  P("proteina", "servimedic-800", "Whey Protein Servimedic Vainilla 800 g", "Servimedic", "F", 3004, null, 800, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-800-g-vainilla-servimedic.html"),
+  P("proteina", "servimedic-2000", "Whey Protein Servimedic Vainilla 2 kg", "Servimedic", "F", 6737, null, 2000, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-vainilla-2-kg-servimedic.html"),
+  P("proteina", "ena-truemade-453", "Whey Protein ENA True Made 1 lb (453 g)", "ENA", "F", 2140, null, 453, "g", "disponible", "https://tienda.farmashop.com.uy/400638.html"),
+  P("proteina", "ena-truemade-453", "True Made Whey Protein ENA 1 lb", "ENA", "D", 2140, null, 453, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/truemade-whey-protein-ena-chocolate-1lb?variant=61947290976626"),
+  P("proteina", "ena-truemade-907", "True Made Whey Protein ENA 2 lb", "ENA", "D", 3590, null, 907, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/truemade-whey-protein-ena-chocolate-2lb?variant=61936580067698"),
+  P("proteina", "ena-isolado-930", "ENA Whey Isolado Chocolate 930 g", "ENA", "F", 3690, null, 930, "g", "disponible", "https://tienda.farmashop.com.uy/suplemento-ena-whey-isolado-chocolate-930g.html"),
+  P("proteina", "platinum-isolate-930", "Platinum 100% Whey Isolate 930 g", "Platinum", "F", 3122, null, 930, "g", "disponible", "https://tienda.farmashop.com.uy/platinum-100-whey-isolate-va-2-lb.html"),
+  P("proteina", "wp-930", "Whey Protein WP Frutilla 930 g", null, "F", 3479, null, 930, "g", "disponible", "https://tienda.farmashop.com.uy/wp-whey-protein-frutilla-2lb.html"),
+  P("proteina", "gold-isolate-907", "Whey Protein Isolate Gold Nutrition 2 lb", "Gold Nutrition", "D", 4740, null, 907, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/whey-protein-isolated-vainilla-2lb?variant=61649851220338"),
+  P("proteina", "on-gold-907", "Whey Optimum Nutrition Gold Standard 2 lb", "Optimum Nutrition", "D", 4990, null, 907, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/whey-optimum-nutrition-vainilla-2lb?variant=62026402660722"),
+  P("proteina", "on-gold-2268", "Whey Optimum Nutrition Gold Standard 5 lb", "Optimum Nutrition", "D", 9990, null, 2268, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/whey-optimum-nutrition-cookies-5lb?variant=62000495853938"),
+  P("proteina", "saturn-908", "Saturn Smart Whey Vainilla 908 g", "Saturn", "F", 6190, null, 908, "g", "disponible", "https://tienda.farmashop.com.uy/saturn-smart-whey-vainilla-2lb.html"),
+  P("proteina", "usn-2000", "USN Bluelab Whey Protein 2 kg", "USN", "F", 8500, null, 2000, "g", "disponible", "https://tienda.farmashop.com.uy/whey-protein-chocolate-2kg.html"),
+  P("proteina", "vitalabs-vegana-453", "Proteína vegana Vitalabs 1 lb", "Vitalabs", "D", 2690, null, 453, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/whey-protein-vegano-vitalabs-1lb?variant=62039346119026", { nota: "Proteína vegetal." }),
+  P("proteina", "megaprotein-800", "Proteína Vegana Mega Protein Vainilla 800 g", null, "F", 2305, null, 800, "g", "disponible", "https://tienda.farmashop.com.uy/mega-protein-800-grs.html", { nota: "Proteína vegetal." }),
+  // --- Ganador de peso ---
+  P("ganador", "sylab-mass-1200", "Sylab MASS 3000 1,2 kg", "Sylab", "F", 1691, null, 1200, "g", "disponible", "https://tienda.farmashop.com.uy/sylab-mass-sabor-vainilla-1-2kg.html"),
+  P("ganador", "ena-ultramass-1500", "ENA Ultra Mass Vainilla 1,5 kg", "ENA", "F", 3250, null, 1500, "g", "disponible", "https://tienda.farmashop.com.uy/400635.html"),
+  // --- Omega 3 ---
+  P("omega 3", "qualivits-1000-60", "Omega-3 Qualivits Fish Oil 1000 mg 60 cápsulas", "Qualivits", "F", 834, null, 60, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega3-fish-oil-1000-mg-60-tabletas.html", { nota: "1000 mg es aceite de pescado total; la tienda no indica cuánto EPA+DHA tiene." }),
+  P("omega 3", "qualivits-1000-100", "Omega-3 Qualivits Fish Oil 1000 mg 100 cápsulas", "Qualivits", "F", 1194, null, 100, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega-3-fish-oil-1000-mg-100-capsulas.html"),
+  P("omega 3", "qualivits-1000-180", "Omega-3 Qualivits Fish Oil 1000 mg 180 cápsulas", "Qualivits", "F", 2037, null, 180, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega-3-fish-oil-1000-mg-180-cap.html"),
+  P("omega 3", "servimedic-40", "Omega 3 Servimedic 40 cápsulas blandas", "Servimedic", "F", 753, null, 40, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega3-40-capsulas-servimedic.html"),
+  P("omega 3", "servimedic-100", "Omega 3 Servimedic 100 cápsulas blandas", "Servimedic", "F", 1352, null, 100, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega3-100-capsulas-servimedic.html"),
+  P("omega 3", "servimedic-140", "Omega 3 Servimedic 100 + 40 cápsulas", "Servimedic", "F", 2044, null, 140, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega3-100-40-capsulas-servimedic.html"),
+  P("omega 3", "naturallife-100", "Natural Life Omega 3 1000 mg 100 cápsulas", "Natural Life", "F", 1388, null, 100, "cápsula", "disponible", "https://tienda.farmashop.com.uy/omega3-100-capsulas-soft-n-life.html"),
+  P("omega 3", "qualivits-super-60", "Super Omega-3 Qualivits 60 cápsulas", "Qualivits", "F", 1170, null, 60, "cápsula", "disponible", "https://tienda.farmashop.com.uy/super-omega3-fish-oil-60-comprimidos.html", { nota: "Versión concentrada de la marca." }),
+  P("omega 3", "vitalkrill-30", "Vitalkrill 500 mg 30 cápsulas (aceite de krill)", null, "F", 1311, null, 30, "cápsula", "disponible", "https://tienda.farmashop.com.uy/302921.html"),
+  // --- Colágeno ---
+  P("colageno", "colagen-200", "Colágeno Hidrolizado Colagén 200 g", null, "F", 1124, null, 200, "g", "disponible", "https://tienda.farmashop.com.uy/colagen-suplemento-dietario-pote-x-200-g.html"),
+  P("colageno", "colagen-ha-200", "Colágeno + Ácido Hialurónico Colagén HA 200 g", null, "F", 1319, null, 200, "g", "disponible", "https://tienda.farmashop.com.uy/colageno-acido-hialuronico-colagen-ha-200-g.html"),
+  P("colageno", "ena-enaccion-240", "ENA Enaccion Colágeno + Vitamina C 240 g", "ENA", "F", 1650, null, 240, "g", "disponible", "https://tienda.farmashop.com.uy/enaccion-colageno-240gr-naranja.html"),
+  P("colageno", "inner-200", "Inner Hyaluronic Collagen Booster Frutilla 200 g", "Inner", "F", 1940, null, 200, "g", "disponible", "https://tienda.farmashop.com.uy/collagen-booster-frutilla-200-g.html"),
+  P("colageno", "inner-300", "Inner Hyaluronic Collagen Booster Frutilla 300 g", "Inner", "F", 2480, null, 300, "g", "disponible", "https://tienda.farmashop.com.uy/collagen-booster-frutilla.html"),
+  P("colageno", "qualivits-colageno-300", "Super Colágeno Hidrolizado Qualivits 300 g", "Qualivits", "F", 2283, null, 300, "g", "disponible", "https://tienda.farmashop.com.uy/super-colageno-hidrolizado-qualivits.html"),
+  P("colageno", "ha-colageno-90", "Colágeno Homeopatía Alemana 90 cápsulas", "Homeopatía Alemana", "F", 1101, null, 90, "cápsula", "disponible", "https://tienda.farmashop.com.uy/colageno-90-capsulas-ha.html"),
+  P("colageno", "genacol-90", "Genacol 400 mg 90 cápsulas", "Genacol", "F", 2195, null, 90, "cápsula", "disponible", "https://tienda.farmashop.com.uy/genacol-400-mg-90-capsulas.html"),
+  P("colageno", "qualivits-colmag-60", "Colágeno hidrolizado + Magnesio Qualivits 60 comprimidos", "Qualivits", "D", 640, null, 60, "comprimido", "disponible", "https://decathlon.com.uy/collections/suplementos/products/colageno-hidrolizado-magnesio-qualivits-60-comprimidos?variant=62039418831218"),
+  // --- Magnesio ---
+  P("magnesio", "ena-citrato-60", "Citrato de Magnesio ENA 60 cápsulas", "ENA", "F", 1220, null, 60, "cápsula", "disponible", "https://tienda.farmashop.com.uy/ena-citrato-de-magnesio-60-capsulas.html"),
+  P("magnesio", "ena-citrato-60", "Citrato de Magnesio ENA 60 cápsulas", "ENA", "D", 1220, null, 60, "cápsula", "disponible", "https://decathlon.com.uy/collections/suplementos/products/citrato-de-magnesio-60-capsulas?variant=62275614343538"),
+  P("magnesio", "qualivits-mg6-100", "Magnesium Complete 6 Qualivits 100 tabletas", "Qualivits", "S", 1598, null, 100, "tableta", "sin dato", "https://sdapower.com/producto/magnesium-complete-6-100-tabletas", { nota: "Precio «desde»; seis formas de magnesio combinadas." }),
+  P("magnesio", "qualivits-colmag-60", "Colágeno hidrolizado + Magnesio Qualivits 60 comprimidos", "Qualivits", "D", 640, null, 60, "comprimido", "disponible", "https://decathlon.com.uy/collections/suplementos/products/colageno-hidrolizado-magnesio-qualivits-60-comprimidos?variant=62039418831218"),
+  // --- Electrolitos ---
+  P("electrolitos", "lytos-180", "Electrolitos Lytos 180 g", "Lytos", "F", 1590, null, 180, "g", "disponible", "https://tienda.farmashop.com.uy/lytos-sabor-limon-180-g.html"),
+  P("electrolitos", "lytos-180", "Electrolitos en polvo Lytos 180 g", "Lytos", "D", 1590, null, 180, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/electrolitos-sabor-limon-180gs?variant=62275720708466"),
+  P("electrolitos", "cibeles-powerdrink-500", "Power Drink Cibeles Naranja 500 g", "Cibeles", "D", 800, null, 500, "g", "disponible", "https://decathlon.com.uy/collections/suplementos/products/power-drink-cibeles-naranja-500g-bebida-energetica-con-electrolitos?variant=61977872007538", { nota: "Bebida deportiva: aporta también azúcares." }),
+  // --- Otros ---
+  P("glutamina", "cibeles-glutamina-150", "L-Glutamina 100% Cibeles 150 g", "Cibeles", "F", 1440, null, 150, "g", "disponible", "https://tienda.farmashop.com.uy/glutamina-cibeles-150-g.html"),
+  P("hmb", "cibeles-hmb-120", "HMB Cibeles 120 g", "Cibeles", "F", 2003, null, 120, "g", "disponible", "https://tienda.farmashop.com.uy/hmb-cibeles-120-g.html"),
+];
+
+/* =====================================================================
+   HISTORIAL DE PRECIOS: un "relevamiento" por semana.
+   Formato: { fecha: "AAAA-MM-DD", precios: { "<k>@<tienda>": { p, a, st } } }
+   ===================================================================== */
+const clave = (p) => p.k + "@" + p.s;
+const ORIGINAL = new Map(CATALOGO.map((p) => [p, { p: p.p, a: p.a, st: p.st }]));
+let RELEVAMIENTOS = [{ fecha: "2026-10-22", precios: Object.fromEntries(CATALOGO.map((p) => [clave(p), { p: p.p, a: p.a, st: p.st }])) }];
+
+const fechaCorta = (iso) => { const [a, m, d] = String(iso).split("-"); return `${d}/${m}/${a}`; };
+const pesosTxt = (n) => "$ " + Math.round(n).toLocaleString("es-UY");
+const mediana = (xs) => { const s = [...xs].sort((a, b) => a - b); const m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+
+/** Aplica a cada producto el precio de su último relevamiento */
+function aplicarRelevamientos() {
+  RELEVAMIENTOS.sort((a, b) => a.fecha.localeCompare(b.fecha));
+  for (const p of CATALOGO) {
+    const base = ORIGINAL.get(p);
+    let ultimo = { ...base, fecha: RELEVAMIENTOS[0].fecha };
+    for (const r of RELEVAMIENTOS) { const x = r.precios?.[clave(p)]; if (x && Number(x.p) > 0) ultimo = { p: Number(x.p), a: x.a ? Number(x.a) : null, st: x.st || "sin dato", fecha: r.fecha }; }
+    p.p = ultimo.p; p.a = ultimo.a; p.st = ultimo.st; p.fecha = ultimo.fecha;
+  }
+  const ultima = RELEVAMIENTOS[RELEVAMIENTOS.length - 1].fecha;
+  $("#relevado").textContent = `Precios al ${fechaCorta(ultima)} · ${RELEVAMIENTOS.length} ${RELEVAMIENTOS.length === 1 ? "relevamiento" : "relevamientos semanales"} · ${Object.keys(TIENDAS).length} tiendas`;
+}
+/** Precios de este producto en cada relevamiento, del más viejo al más nuevo */
+function historial(p) {
+  return RELEVAMIENTOS.map((r) => ({ fecha: r.fecha, x: r.precios?.[clave(p)] })).filter((h) => h.x && Number(h.x.p) > 0).map((h) => ({ fecha: h.fecha, p: Number(h.x.p) }));
+}
+/** Qué dice el historial sobre el precio actual */
+function historialInfo(p) {
+  const h = historial(p);
+  if (h.length < 2) return { h, texto: "Primer relevamiento: el historial se arma cada semana.", estado: "nuevo" };
+  const previos = h.slice(0, -1).map((x) => x.p), actual = h[h.length - 1].p, anterior = previos[previos.length - 1];
+  const semanas = h.length;
+  if (actual < Math.min(...previos)) return { h, texto: `📉 Precio más bajo de los últimos ${semanas} relevamientos (antes, mínimo ${pesosTxt(Math.min(...previos))}).`, estado: "minimo" };
+  if (actual > anterior) return { h, texto: `📈 Subió ${pesosTxt(actual - anterior)} desde el ${fechaCorta(h[h.length - 2].fecha)}.`, estado: "sube" };
+  if (actual < anterior) return { h, texto: `↘ Bajó ${pesosTxt(anterior - actual)} desde el ${fechaCorta(h[h.length - 2].fecha)}.`, estado: "baja" };
+  return { h, texto: `= Mismo precio que el ${fechaCorta(h[h.length - 2].fecha)}.`, estado: "igual" };
+}
+/** Minigráfico del precio en el tiempo */
+function minigrafico(h) {
+  if (h.length < 2) return "";
+  const W = 120, H = 30, xs = h.map((x) => x.p), min = Math.min(...xs), max = Math.max(...xs), r = max - min || 1;
+  const pts = h.map((x, i) => `${(i / (h.length - 1)) * (W - 6) + 3},${H - 4 - ((x.p - min) / r) * (H - 8)}`);
+  const [ux, uy] = pts[pts.length - 1].split(",");
+  return `<svg class="mini" viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolución del precio"><polyline points="${pts.join(" ")}" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${ux}" cy="${uy}" r="3.5" fill="currentColor"/></svg>`;
+}
+
+/* Palabras que la gente escribe -> tipo del catálogo */
+const SINONIMOS = [
+  ["creatina", ["creatina", "creatine", "creapure", "monohidrato"]],
+  ["proteina", ["proteina", "whey", "protein", "isolate", "aislada", "suero"]],
+  ["ganador", ["ganador", "mass", "gainer", "masa"]],
+  ["omega 3", ["omega", "aceite de pescado", "fish oil", "krill", "epa", "dha"]],
+  ["colageno", ["colageno", "collagen", "colagen"]],
+  ["magnesio", ["magnesio", "magnesium"]],
+  ["electrolitos", ["electrolito", "sales", "hidratacion", "isotonica"]],
+  ["glutamina", ["glutamina", "glutamine"]],
+  ["hmb", ["hmb"]],
+];
+
+/* Evidencia por suplemento (síntesis práctica del AIS / ISSN) */
+const EVIDENCIA_BASE = {
+  "creatina": { nivel: "solida", texto: "Grupo A del Australian Institute of Sport: mejora el rendimiento en esfuerzos cortos e intensos repetidos y ayuda a ganar fuerza y masa magra junto con entrenamiento.", dosis: "3 a 5 g por día, todos los días, en cualquier momento. La fase de carga no es necesaria. Los efectos se notan en 3 a 4 semanas." },
+  "proteina": { nivel: "solida", texto: "Grupo A del AIS como alimento deportivo: útil para llegar a tus requerimientos de proteína cuando con la comida no alcanzás. No hace magia si tu dieta ya cubre lo necesario.", dosis: "20 a 40 g de proteína por toma, repartidas en el día. El total diario suele estar entre 1,4 y 2 g por kg de peso en personas que entrenan." },
+  "ganador": { nivel: "limitada", texto: "Es básicamente comida en polvo (carbohidratos + proteína). Sirve si te cuesta comer lo suficiente para subir de peso; no tiene un efecto propio.", dosis: "Según la etiqueta, como complemento de las comidas, no en reemplazo." },
+  "omega 3": { nivel: "limitada", texto: "Beneficio claro para la salud cardiovascular si comés poco pescado. Para rendimiento deportivo la evidencia es inconsistente (grupo B del AIS).", dosis: "Lo que importa es el EPA+DHA real (habitualmente 250 a 1000 mg por día), no los mg de aceite total." },
+  "colageno": { nivel: "limitada", texto: "Hay estudios prometedores para tendones y articulaciones, tomado con vitamina C antes de entrenar, pero todavía son pocos y pequeños.", dosis: "Los estudios usan 10 a 15 g de colágeno o gelatina con vitamina C, 30 a 60 minutos antes del ejercicio." },
+  "magnesio": { nivel: "insuficiente", texto: "Solo mejora el rendimiento si tenés déficit. Si comés variado, probablemente no lo necesites.", dosis: "Si un profesional detecta déficit: 200 a 400 mg de magnesio elemental por día, con comida." },
+  "electrolitos": { nivel: "solida", texto: "Útiles en ejercicio largo (más de 60 a 90 minutos), con calor o mucha sudoración, para reponer sodio y líquidos.", dosis: "Durante o después de sesiones largas, según la etiqueta y tu sudoración." },
+  "glutamina": { nivel: "insuficiente", texto: "No mostró mejoras de rendimiento ni de masa muscular en personas sanas que entrenan.", dosis: "No se recomienda para rendimiento." },
+  "hmb": { nivel: "insuficiente", texto: "Resultados inconsistentes; en personas entrenadas casi no muestra beneficio.", dosis: "Los estudios usan 3 g por día, pero no se recomienda para rendimiento." },
+};
+
+/* "Antes de comprar": hábitos que pesan más que cualquier suplemento */
+const ANTES_BASE = {
+  "creatina": ["Entrenás fuerza o deportes de esfuerzos cortos al menos 2 o 3 veces por semana. Sin entrenamiento, la creatina no hace nada.", "Llegás a tu proteína diaria con la comida."],
+  "proteina": ["Hacé la cuenta de cuánta proteína comés hoy: si ya llegás a 1,4–2 g por kg de peso con la comida, no la necesitás.", "Probá primero con alimentos: huevos, lácteos, legumbres, carne, pollo o pescado suelen salir más baratos por gramo de proteína.", "Repartí la proteína en 3 o 4 comidas en lugar de juntarla en una."],
+  "ganador": ["Probá primero sumar una comida o una colación más por día (pan, avena, banana, maní, leche).", "Un ganador es comida en polvo: no hace nada que no haga la comida."],
+  "omega 3": ["Si comés pescado graso (sardina, caballa, atún, salmón) 2 veces por semana, probablemente no lo necesites.", "Si igual lo comprás, fijate en el EPA+DHA real de la etiqueta, no en los mg de aceite."],
+  "colageno": ["Un entrenamiento que aumenta la carga de a poco protege los tendones más que cualquier suplemento.", "Si lo probás, los estudios lo toman con vitamina C (una naranja o un kiwi) antes de entrenar."],
+  "magnesio": ["Revisá si comés frutos secos, legumbres, verduras de hoja e integrales: son buenas fuentes de magnesio.", "Solo tiene sentido si hay déficit. Ante calambres o cansancio persistente, consultá a un profesional antes de suplementar."],
+  "electrolitos": ["Para entrenamientos de menos de una hora, alcanza con agua.", "Sirven en sesiones largas, con calor o si sudás mucho."],
+  "glutamina": ["La evidencia no la respalda para rendimiento: ese dinero rinde más en comida con proteína."],
+  "hmb": ["La evidencia no lo respalda en personas que entrenan: priorizá entrenamiento constante, proteína y descanso."],
+};
+const ANTES_COMUN = ["Dormís entre 7 y 9 horas la mayoría de las noches.", "Entrenás con constancia: el suplemento suma poco si el entrenamiento es irregular."];
+
+
+/* ===================================================================== */
+const $ = (s) => document.querySelector(s);
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const vacio = (v) => v === null || v === undefined || (typeof v === "string" && !v.trim());
+const NV = '<span class="nv">No verificado</span>';
+const nv = (v) => (vacio(v) ? NV : esc(v));
+const pesos = (n, d = 0) => (n === null || n === undefined || !isFinite(n) ? NV : "$ " + Number(n).toLocaleString("es-UY", { minimumFractionDigits: d, maximumFractionDigits: d }));
+const normalizar = (t) => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+const urlSegura = (u) => { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; } catch { return null; } };
+
+aplicarRelevamientos();
+const ultimaFecha = () => fechaCorta(RELEVAMIENTOS[RELEVAMIENTOS.length - 1].fecha);
+
+/* Sugerencias */
+const SUG = [["Creatina", "--rosa"], ["Proteína whey", "--menta"], ["Omega 3", "--celeste"], ["Magnesio", "--manteca"], ["Colágeno", "--lavanda"], ["Electrolitos", "--durazno"]];
+$("#sugerencias").innerHTML = SUG.map(([t, c]) => `<button type="button" class="chip" style="--c: var(${c})">${t}</button>`).join("");
+document.querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => { $("#consulta").value = b.textContent; consultar(b.textContent); }));
+
+
+/* ---------- Cálculos ---------- */
+function tipoDe(consulta) {
+  const q = normalizar(consulta);
+  for (const [tipo, palabras] of SINONIMOS) if (palabras.some((w) => q.includes(normalizar(w)))) return tipo;
+  return null;
+}
+/** Costo por dosis efectiva: solo cuando el dato es confiable (creatina monohidrato pura, 5 g). */
+function dosisInfo(p) {
+  if (p.t === "creatina" && p.pura && p.g) {
+    const dosis = p.g / 5;
+    return { dosis: Math.floor(dosis), costo: p.p / dosis, etiqueta: "Costo por dosis (5 g)" };
+  }
+  if (p.u === "g" && p.g) return { dosis: null, costo: (p.p / p.g) * 100, etiqueta: "Precio cada 100 g de producto", ref: true };
+  if (p.g) return { dosis: null, costo: p.p / p.g, etiqueta: `Precio por ${p.u}`, ref: true };
+  return { dosis: null, costo: null, etiqueta: "Costo por dosis" };
+}
+/** Descuento real: se compara con el HISTORIAL propio y con las otras tiendas, no con el tachado. */
+function descuentoInfo(p, lista) {
+  const h = historial(p), previos = h.slice(0, -1);
+  const otrosMasBaratos = lista.some((o) => o.k === p.k && o !== p && o.st !== "agotado" && o.p <= p.p);
+  if (previos.length) {
+    const ref = mediana(previos.map((x) => x.p));
+    if (p.p <= ref * 0.95) {
+      return { pct: Math.round(((ref - p.p) / ref) * 100), real: !otrosMasBaratos, ahorro: ref - p.p, ref,
+        motivo: otrosMasBaratos ? "Bajó frente a su historial, pero otra tienda lo vende igual o más barato." : `Bajó frente a su historial: en relevamientos anteriores costaba ${pesosTxt(ref)}.` };
+    }
+    if (p.a && p.a > p.p) {
+      const ant = previos[previos.length - 1];
+      return { pct: Math.round(((p.a - p.p) / p.a) * 100), real: false, ahorro: p.a - p.p,
+        motivo: `el ${fechaCorta(ant.fecha)} ya costaba ${pesosTxt(ant.p)}; el precio tachado no es el precio real anterior.` };
+    }
+    return null;
+  }
+  if (!p.a || p.a <= p.p) return null;
+  const pct = Math.round(((p.a - p.p) / p.a) * 100);
+  const otros = lista.filter((o) => o.k === p.k && o !== p).map((o) => o.p);
+  const real = otros.length ? p.p < Math.min(...otros) : null;
+  const motivo = real === true ? `Más barato que en ${lista.filter((o) => o.k === p.k && o !== p).map((o) => TIENDAS[o.s].n).join(" y ")}.`
+    : real === false ? "Otra tienda lo vende igual o más barato: el tachado puede estar inflado."
+    : "Todavía no hay historial ni otra tienda para comparar: no se puede confirmar.";
+  return { pct, real, motivo, ahorro: p.a - p.p };
+}
+function ordenar(lista) {
+  return [...lista].sort((a, b) => (a.st === "agotado") - (b.st === "agotado") || (dosisInfo(a).costo ?? 1e9) - (dosisInfo(b).costo ?? 1e9));
+}
+
+/* ---------- La consulta ---------- */
+let consultaActual = "";
+
+$("#form").addEventListener("submit", (e) => { e.preventDefault(); consultar($("#consulta").value); });
+
+function consultar(texto) {
+  consultaActual = texto.trim();
+  if (consultaActual.length < 2) return;
+  const tipo = tipoDe(consultaActual);
+  const lista = tipo ? CATALOGO.filter((p) => p.t === tipo) : [];
+  $("#error").hidden = true;
+  dibujar(consultaActual, tipo, lista, null, null);
+}
+
+/* ---------- Dibujar ---------- */
+const NIVELES = { solida: "💪 Sólida", limitada: "🤏 Limitada", insuficiente: "🤷 Insuficiente", riesgo_elevado: "⚠️ Riesgo elevado" };
+const COLORES = ["var(--celeste)", "var(--rosa)", "var(--menta)", "var(--manteca)", "var(--lavanda)", "var(--durazno)"];
+
+function ilustracion(p) {
+  const polvo = p.u === "g";
+  const etiqueta = esc(String(p.m || p.t).slice(0, 11).toUpperCase());
+  return polvo
+    ? `<svg viewBox="0 0 120 140" aria-hidden="true"><rect x="30" y="8" width="60" height="22" rx="6" fill="#FFFFFF" stroke="#2E2A56" stroke-width="4"/><rect x="18" y="28" width="84" height="104" rx="18" fill="#FFFFFF" stroke="#2E2A56" stroke-width="4"/><rect x="18" y="60" width="84" height="40" fill="#2E2A56"/><text x="60" y="85" text-anchor="middle" font-family="Figtree, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">${etiqueta}</text></svg>`
+    : `<svg viewBox="0 0 120 140" aria-hidden="true"><rect x="38" y="6" width="44" height="20" rx="5" fill="#FFFFFF" stroke="#2E2A56" stroke-width="4"/><path d="M34 26h52l8 16v84a10 10 0 0 1-10 10H36a10 10 0 0 1-10-10V42z" fill="#FFFFFF" stroke="#2E2A56" stroke-width="4"/><rect x="26" y="62" width="68" height="40" fill="#2E2A56"/><text x="60" y="87" text-anchor="middle" font-family="Figtree, sans-serif" font-weight="700" font-size="11" fill="#FFFFFF">${etiqueta}</text></svg>`;
+}
+
+let ultimoDibujo = null;
+function dibujar(consulta, tipo, lista, info, aviso, desplazar = true) {
+  ultimoDibujo = { consulta, tipo, info, aviso };
+  const base = tipo ? EVIDENCIA_BASE[tipo] : null;
+  const nivel = normalizar(info?.evidencia?.nivel || base?.nivel || "");
+  const orden = ordenar(lista);
+  const disponibles = orden.filter((p) => p.st !== "agotado");
+  const calidad = {};
+  (Array.isArray(info?.calidad) ? info.calidad : []).forEach((c) => { if (c && c.id !== undefined) calidad[c.id] = c.texto; });
+
+  // Ganadores calculados por costo
+  const barato = disponibles[0];
+  const g = info?.ganadores || {
+    mejor_calidad: tipo === "creatina" ? (lista.find((p) => /creapure/i.test(p.n))?.n || null) : null,
+    mejor_relacion_precio_calidad: barato ? barato.n : null,
+    alternativa_economica: [...disponibles].sort((a, b) => a.p - b.p)[0]?.n || null,
+  };
+  const conclusion = info?.conclusion || (base ? base.texto : "No tengo información relevada de este suplemento todavía.");
+  const recomendacion = info?.recomendacion_final || (barato
+    ? `Por costo, la opción más conveniente con stock es ${barato.n} en ${TIENDAS[barato.s].n} a ${pesos(barato.p).replace(/<[^>]+>/g, "")}. Revisá la evidencia antes de comprar.`
+    : "No tengo productos con stock relevados para esta búsqueda.");
+  const ofertas = orden.map((p) => ({ p, d: descuentoInfo(p, lista) })).filter((x) => x.d && x.p.st !== "agotado");
+  const preguntas = (Array.isArray(info?.preguntas_pendientes) ? info.preguntas_pendientes : []).filter((x) => !vacio(x));
+  const alertas = (Array.isArray(info?.alertas) ? info.alertas : []).filter((x) => !vacio(x));
+  const fuentesCient = (Array.isArray(info?.fuentes_cientificas) ? info.fuentes_cientificas : []).filter((x) => !vacio(x));
+  const antesExtra = (Array.isArray(info?.antes_de_comprar) ? info.antes_de_comprar : []).filter((x) => !vacio(x));
+  const antes = antesExtra.length ? antesExtra : [...(tipo ? ANTES_BASE[tipo] || [] : []), ...ANTES_COMUN];
+  const ahora = new Date().toLocaleString("es-UY", { timeZone: "America/Montevideo", dateStyle: "short", timeStyle: "short" });
+
+  $("#resultado").innerHTML = `
+    ${aviso ? `<p class="aviso">ℹ️ ${esc(aviso)} </p>` : ""}
+    <article class="bloque veredicto aparecer">
+      <div class="veredicto-cabecera">
+        <div><h2>${esc(consulta)}</h2>
+          <p class="meta">Consulta del ${esc(ahora)} (hora de Uruguay) · precios al ${ultimaFecha()}</p></div>
+        <div class="sello ev-${esc(nivel)}"><small>Evidencia científica</small><strong>${NIVELES[nivel] || NV}</strong></div>
+      </div>
+      <p class="conclusion">${nv(conclusion)}</p>
+      ${info?.evidencia?.detalle ? `<details class="detalle"><summary>¿Qué dice la evidencia?</summary><p>${esc(info.evidencia.detalle)}</p></details>` : ""}
+      ${preguntas.length ? `<div class="preguntas"><strong>Para afinar la recomendación me sirve saber:</strong><ul>${preguntas.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+    </article>
+
+    <article class="bloque antes">
+      <h2>🌱 Antes de comprar</h2>
+      <p class="antes-intro">Si no tenés resuelto esto, ningún suplemento te va a rendir. Marcá lo que ya cumplís:</p>
+      <ul class="checklist">${antes.map((x, i) => `<li><input type="checkbox" id="antes-${i}"><label for="antes-${i}">${esc(x)}</label></li>`).join("")}</ul>
+      <p class="antes-resumen" id="antes-resumen" aria-live="polite"></p>
+    </article>
+
+    <article class="bloque recomendacion"><h2>✨ Mi recomendación</h2><p>${nv(recomendacion)}</p></article>
+
+    ${lista.length ? `
+    <article class="bloque"><h2>🏆 Ganadores</h2>
+      <div class="ganadores">
+        <div class="ganador" style="--g: var(--manteca)"><small>🥇 Mejor calidad</small><p>${nv(g.mejor_calidad)}</p></div>
+        <div class="ganador" style="--g: var(--menta)"><small>⚖️ Mejor relación precio-calidad</small><p>${nv(g.mejor_relacion_precio_calidad)}</p></div>
+        <div class="ganador" style="--g: var(--celeste)"><small>🪙 Alternativa económica</small><p>${nv(g.alternativa_economica)}</p></div>
+      </div>
+    </article>` : ""}
+
+    <article class="bloque"><h2>🛒 Productos en Uruguay
+      ${lista.length ? `<span class="vistas" role="group" aria-label="Cambiar vista"><button type="button" class="activa" data-vista="tarjetas">Tarjetas</button><button type="button" data-vista="tabla">Tabla comparativa</button></span>` : ""}</h2>
+      ${lista.length ? `<p class="orden">${lista.length} productos en ${new Set(lista.map((p) => p.s)).size} tiendas, ordenados del más conveniente al menos conveniente. Los agotados van al final.</p>
+        <div class="productos" id="v-tarjetas">${orden.map((p, i) => tarjeta(p, i, lista, calidad, p === barato)).join("")}</div>
+        <div class="tabla" id="v-tabla" hidden>${tabla(orden, lista, calidad)}</div>`
+      : `<p class="vacio">Todavía no relevé precios de «${esc(consulta)}» en tiendas uruguayas. Probá con: ${SUG.map((s) => s[0]).join(", ")}.</p>`}
+    </article>
+
+    ${lista.length ? `<article class="bloque"><h2>🏷️ Ofertas de hoy</h2>
+      ${ofertas.length ? `<div class="ofertas">${ofertas.map(({ p, d }) => `<div class="oferta">
+          <h3>${esc(p.n)}</h3><p>${esc(TIENDAS[p.s].n)}</p>
+          <div class="monto">${pesos(p.p)} <s style="font-size:.9rem;font-weight:500">${d.ref ? pesosTxt(d.ref) : pesos(p.a)}</s></div>
+          <p><b>Ahorrás:</b> ${pesos(d.ahorro)} (${d.pct}%)</p>
+          <p>${d.real === true ? "✅ Descuento real" : d.real === false ? "🔎 Descuento falso o dudoso" : "🔎 No se puede confirmar"}: ${esc(d.motivo)}</p>
+          <p><b>Vigencia:</b> ${NV}</p>
+          ${urlSegura(p.url) ? `<p><a href="${esc(urlSegura(p.url))}" target="_blank" rel="noopener">Ver la oferta</a></p>` : ""}</div>`).join("")}</div>`
+        : `<p class="vacio">No hay ofertas con stock en esta categoría. Mejor no forzar una.</p>`}
+    </article>` : ""}
+
+    <div class="dos">
+      <article class="bloque dosis"><h2>🥄 Dosis y uso</h2><p>${nv(info?.dosis_y_uso || base?.dosis)}</p></article>
+      <article class="bloque alertas"><h2>🚩 Alertas</h2>
+        ${alertas.length ? `<ul>${alertas.map((a) => `<li>${esc(a)}</li>`).join("")}</ul>` : `<p style="margin:0">Si tomás medicación, tenés alguna enfermedad, estás embarazada o competís federado, consultá antes con un profesional.</p>`}
+      </article>
+    </div>
+
+    <article class="bloque fuentes"><h2>📚 Fuentes</h2>
+      <ul>
+        ${[...new Set(lista.map((p) => p.s))].map((s) => `<li>Precios: <a href="https://${TIENDAS[s].web}" target="_blank" rel="noopener">${TIENDAS[s].n} (${TIENDAS[s].web})</a>, relevado el ${ultimaFecha()}</li>`).join("")}
+        ${fuentesCient.map((f) => `<li>Evidencia: ${esc(f)}</li>`).join("")}
+        ${!fuentesCient.length && base ? "<li>Evidencia: Australian Institute of Sport, Sports Supplement Framework; International Society of Sports Nutrition</li>" : ""}
+      </ul>
+    </article>`;
+
+  const cont = $("#resultado");
+  cont.hidden = false;
+  if (desplazar) cont.scrollIntoView({ behavior: "smooth", block: "start" });
+  cont.querySelectorAll("[data-vista]").forEach((b) => b.addEventListener("click", () => {
+    cont.querySelectorAll("[data-vista]").forEach((x) => x.classList.toggle("activa", x === b));
+    $("#v-tarjetas").hidden = b.dataset.vista !== "tarjetas";
+    $("#v-tabla").hidden = b.dataset.vista !== "tabla";
+  }));
+  const marcas = [...cont.querySelectorAll(".checklist input")];
+  const resumen = () => {
+    const n = marcas.filter((m) => m.checked).length, total = marcas.length;
+    $("#antes-resumen").textContent = n === total ? "¡Bien! Tenés la base resuelta: ahora sí, el suplemento puede sumar."
+      : n === 0 ? `0 de ${total}. Empezá por estos hábitos: son gratis y rinden más que el suplemento.`
+      : n / total >= 0.5 ? `${n} de ${total}. Te falta poco: lo que no marcaste rinde más que cualquier suplemento.`
+      : `${n} de ${total}. Antes de gastar, trabajá en lo que no marcaste: rinde más que cualquier suplemento.`;
+  };
+  marcas.forEach((m) => m.addEventListener("change", resumen));
+  if (marcas.length) resumen();
+}
+
+function tarjeta(p, i, lista, calidad, esTop) {
+  const d = dosisInfo(p), desc = descuentoInfo(p, lista), url = urlSegura(p.url);
+  const cal = calidad[CATALOGO.indexOf(p)] || p.nota;
+  const hi = historialInfo(p);
+  return `<div class="producto ${p.st === "agotado" ? "agotado" : ""}">
+    <div class="foto" style="--fp: ${COLORES[i % COLORES.length]}">${ilustracion(p)}
+      <span class="pin ${esTop ? "top" : ""}">${esTop ? "★ Más conveniente" : p.st === "agotado" ? "Agotado" : p.st === "disponible" ? "Disponible" : "Stock sin dato"}</span>
+      ${desc ? `<span class="pin desc">−${desc.pct}%${desc.real ? "" : " ?"}</span>` : ""}
+    </div>
+    <div class="cuerpo">
+      <h3>${esc(p.n)}</h3>
+      <div class="tienda">${nv(p.m)} · <b>${esc(TIENDAS[p.s].n)}</b></div>
+      <div class="precio">${pesos(p.p)}${p.a && p.a > p.p ? `<s>${pesos(p.a)}</s>` : ""}</div>
+      <div class="datos">
+        <div><small>Contenido</small><b>${p.g ? `${p.g} ${p.u === "g" ? "g" : p.u + "s"}` : NV}</b></div>
+        <div><small>Dosis efectivas</small><b>${d.dosis ?? NV}</b></div>
+        <div style="grid-column: 1 / -1"><small>${esc(d.etiqueta)}</small><b>${pesos(d.costo, d.costo !== null && d.costo < 100 ? 2 : 0)}</b></div>
+      </div>
+      <div class="hist hist-${hi.estado}">${minigrafico(hi.h)}<span>${esc(hi.texto)}</span></div>
+      ${desc ? `<p class="calidad">${desc.real === true ? "✅" : "🔎"} ${esc(desc.motivo)}</p>` : ""}
+      <p class="calidad"><b>Calidad:</b> ${nv(cal)}</p>
+      ${url ? `<a class="ir" href="${esc(url)}" target="_blank" rel="noopener">Ver en ${esc(TIENDAS[p.s].n)}</a>` : ""}
+    </div></div>`;
+}
+
+function tabla(orden, lista, calidad) {
+  return `<table><thead><tr><th>Producto</th><th>Tienda</th><th>Precio</th><th>Descuento</th><th>Dosis efectivas</th><th>Costo por dosis / referencia</th><th>Historial</th><th>Calidad</th><th>Stock</th><th>Enlace</th></tr></thead><tbody>
+    ${orden.map((p) => {
+      const d = dosisInfo(p), desc = descuentoInfo(p, lista), url = urlSegura(p.url);
+      return `<tr><td><b>${esc(p.n)}</b><br><small>${nv(p.m)}</small></td><td>${esc(TIENDAS[p.s].n)}</td>
+        <td class="num">${pesos(p.p)}</td>
+        <td class="num">${desc ? `${desc.pct}% ${desc.real ? "✅ real" : desc.real === false ? "🔎 falso o dudoso" : "🔎 sin confirmar"}` : NV}</td>
+        <td class="num">${d.dosis ?? NV}</td>
+        <td class="num">${pesos(d.costo, d.costo !== null && d.costo < 100 ? 2 : 0)}<br><small>${esc(d.etiqueta)}</small></td>
+        <td><small>${historial(p).map((x) => `${fechaCorta(x.fecha).slice(0, 5)}: ${pesosTxt(x.p)}`).join("<br>")}</small></td>
+        <td>${nv(calidad[CATALOGO.indexOf(p)] || p.nota)}</td>
+        <td>${esc(p.st === "sin dato" ? "No verificado" : p.st)}</td>
+        <td>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">Ver</a>` : NV}</td></tr>`;
+    }).join("")}</tbody></table>`;
+}
+
+$("#consulta").value = "Creatina";
+dibujar("Creatina", "creatina", CATALOGO.filter((p) => p.t === "creatina"), null, "Ejemplo: comparación de creatina con los precios relevados. Buscá cualquier otro suplemento arriba.", false);
+</script>
+
+</body></html>
